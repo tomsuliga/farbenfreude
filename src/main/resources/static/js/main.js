@@ -4,6 +4,12 @@ var scorep1 = 0;
 var scorep2 = 0;
 var scorep3 = 0;
 var scorep4 = 0;
+var phase = 1;
+var numTilesRevealed = 0;
+var numTilesSelected = 0;
+var isPlayerMove = true;
+var currentPlayer = 1;
+var currentPlayerName;
 
 $(document).ready(function() {
 	console.log("Window loaded and ready");
@@ -11,9 +17,40 @@ $(document).ready(function() {
 
 //dynamic - works after class being added
 $(document).on('click', "div.cell", function() {
+	if (!isPlayerMove) {
+		return;
+	}
+	
 	let e = $(this);
-	revealCell(e);
+	if (e.hasClass("cellAvailable")) {
+		revealCell(e);
+	} else if (e.hasClass("cellColor5")) {
+		ownCell(e);
+	}
 });
+
+function ownCell(e) {
+	let cellPower = e.attr("data-power");
+	e.attr("data-owner", currentPlayer);
+	e.attr("data-color", currentPlayer);
+	e.addClass("cellColor" + currentPlayer);
+	e.removeClass("cellColor5");
+	
+	switch (parseInt(1,10)) {
+		case 1: scorep1 += parseInt(cellPower,10); $('#scorep1').text(scorep1); break;
+		case 2: scorep2 += parseInt(cellPower,10); $('#scorep2').text(scorep2); break;
+		case 3: scorep3 += parseInt(cellPower,10); $('#scorep3').text(scorep3); break;
+		case 4: scorep4 += parseInt(cellPower,10); $('#scorep4').text(scorep4); break;
+	}
+	
+	numTilesSelected++;
+	
+	if (numTilesSelected == 1) {
+		$('#sm1').text("");
+		$('#sm2').text(currentPlayerName + ": Turn over");
+		$('#sm3').text("");		
+	}
+}
 
 function revealCell(e) {
 	let cellColor = e.attr("data-color");
@@ -23,7 +60,9 @@ function revealCell(e) {
 	if (e.hasClass("cellColor" + cellColor)) {
 		return;
 	}
-
+	
+	e.removeClass("cellAvailable");
+	
 	e.addClass("cellColor" + cellColor);
 	
 	if (cellOwner != cellColor) {
@@ -32,11 +71,13 @@ function revealCell(e) {
 	
 	e.text(cellPower);
 	
-	switch (parseInt(cellOwner,10)) {
-		case 1: scorep1 += parseInt(cellPower,10); $('#scorep1').text(scorep1); break;
-		case 2: scorep2 += parseInt(cellPower,10); $('#scorep2').text(scorep2); break;
-		case 3: scorep3 += parseInt(cellPower,10); $('#scorep3').text(scorep3); break;
-		case 4: scorep4 += parseInt(cellPower,10); $('#scorep4').text(scorep4); break;
+	if (phase == 1) {
+		numTilesRevealed++;
+		if (numTilesRevealed == 2) {
+			$('#sm1').text("");
+			$('#sm2').text(currentPlayerName + ": Select 1 black tile...");
+			$('#sm3').text("");
+		}
 	}
 }
 
@@ -50,6 +91,7 @@ function hideCell(e) {
 	}
 	
 	e.removeClass("cellColor" + cellColor);
+	e.addClass("cellAvailable");
 	
 	if (cellOwner != cellColor) {
 		e.removeClass("cellOwner" + cellOwner);
@@ -85,6 +127,15 @@ $(document).on('click', "button#btnHideAllBoard", function() {
 	}
 });
 
+function beginGame() {
+	$('#btnInstructions').hide();
+	$('#btnStartNewGame').hide();
+	
+	$('#sm1').text("");
+	$('#sm2').text(currentPlayerName + ": Select 2 gray tiles...");
+	$('#sm3').text("");
+}
+
 $(document).on('click', "button#btnInstructions", function() {	
 	console.log("Instructions");
 	$("#myModalInstructions").modal('show');
@@ -96,15 +147,15 @@ $(document).on('click', "button#btnStartNewGame", function() {
 });
 
 $(document).on('click', '.startNewGame', function() {
-	let userName = $('#userName').val();
-	console.log('Ready to rumble: ' + userName);
-	$('#scoreBoxUserName').text(userName);
+	currentPlayerName = $('#userName').val();
+	$('#scoreBoxUserName').text(currentPlayerName);
+	beginGame();
 });
 	
 $(document).on('click', '.startNewGame2', function() {
-	let userName = $('#userName2').val();
-	console.log('Ready to rumble: ' + userName);
-	$('#scoreBoxUserName').text(userName);
+	currentPlayerName = $('#userName2').val();
+	$('#scoreBoxUserName').text(currentPlayerName);
+	beginGame();
 });
 	
 	

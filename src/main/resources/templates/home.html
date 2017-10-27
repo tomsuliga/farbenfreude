@@ -76,7 +76,7 @@
 		<div id="middleMiddle">
 			<block th:each="counter1:${#numbers.sequence(0,9)}"> <!-- Inclusive so 0,1,2,3...9 -->
 				<block th:each="counter2:${#numbers.sequence(0,9)}"> <!-- Inclusive so 0,1,2,3...9 -->
-					<div class="cell" 
+					<div class="cell cellAvailable" 
 					     th:id="${'cell_' + counter1 + '_' + counter2}"
 					     th:attr="data-color=${gameGrid.getCell(counter1,counter2).color},
 					              data-power=${gameGrid.getCell(counter1,counter2).power},
@@ -88,11 +88,11 @@
 		</div>
 		<div id="middleBottom">
 			<div class="statusMsg" id="sm1">Welcome to Farbenfreude</div>
-			<div class="statusMsg" id="sm2"></div>
-			<div class="statusMsg" id="sm3">
+			<div class="statusMsg" id="sm2">
 				<button class="myButton btn btn-default" id="btnInstructions">Instructions</button>			
 				<button class="myButton btn btn-default" id="btnStartNewGame">Start New Game</button>
 			</div>
+			<div class="statusMsg" id="sm3"></div>
 		</div>
 	</div>
 	<div id="rightSpace">
@@ -105,24 +105,24 @@
 		<div class="playerScore">
 			<div id="playerScore2">
 				<div class="scoreBox cellColor2" id="scorep2">0</div>
-				<div class="nameBox">Hal 9000</div>
+				<div class="nameBox">Skynet</div>
 			</div>
 		</div>
 		<div class="playerScore">
 			<div id="playerScore3">
 				<div class="scoreBox cellColor3" id="scorep3">0</div>
-				<div class="nameBox">Skynet</div>
+				<div class="nameBox">WOPR</div>
 			</div>
 		</div>
 		<div class="playerScore">
 			<div id="playerScore4">
 				<div class="scoreBox cellColor4" id="scorep4">0</div>
-				<div class="nameBox">WOPR</div>
+				<div class="nameBox">HAL 9000</div>
 			</div>
 		</div>
 	</div>
 </div>
-
+<footer>&copy; Tom Suliga 2017</footer>
 <div>
 	<button class="myButton btn btn-default" id="btnShowAllBoard">Show All Board</button>
 	<button class="myButton btn btn-default" id="btnHideAllBoard">Hide All Board</button>
@@ -136,7 +136,7 @@
                 <h3 class="modal-title center">Farbenfreude Instructions</h3>
             </div>
             <div class="modal-body">
-	            <p>Phase 1 - Pick two gray tiles to reveal them. Then choose any visible black tile available. This phase will last 10 rounds.</p>
+	            <p>Phase 1 - Pick two gray tiles to reveal them. Then choose any visible black tile available. Points range from 1 to 8. This phase will last 10 rounds.</p>
 	            <p>Phase 2 - Pick a single card from one of the three decks: Action, Fate, Mystery. Follow instructions on that card.</p>
 	            <P>Action cards - deal with your specific points - generally changing the amount up or down.</P>
 	            <P>Fate cards - involve you and your playing partners - generally trading or manipulating opponents.</P>
