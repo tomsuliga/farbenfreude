@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Farbenfreude</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet" >
+	<link href="css/main.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<div id="gameSpace">
+	<div id="leftSpace">
+		<div class="cardDeckSpace" id="cardDeckSpace1">
+			<div class="cardDeckLightAndCard">
+				<div class="cardDeckLightSpace" id="cardDeckLightSpace1a">
+					<div class="cardDeckLight" id="cardDeckLight1a"></div>
+					<div class="cardDeckLight" id="cardDeckLight1b"></div>
+					<div class="cardDeckLight" id="cardDeckLight1c"></div>
+				</div>
+				<div class="cardDeck" id="cardDeck1">A</div>
+				<div class="cardDeckLightSpace" id="cardDeckLightSpace1b">
+					<div class="cardDeckLight" id="cardDeckLight1a"></div>
+					<div class="cardDeckLight" id="cardDeckLight1b"></div>
+					<div class="cardDeckLight" id="cardDeckLight1c"></div>
+				</div>
+			</div>
+			<div class="cardDeckName" id="cardDeckName1">Action</div>
+		</div>
+		<div class="cardDeckSpace" id="cardDeckSpace1">
+			<div class="cardDeckLightAndCard">
+				<div class="cardDeckLightSpace" id="cardDeckLightSpace2a">
+					<div class="cardDeckLight" id="cardDeckLight2a"></div>
+					<div class="cardDeckLight" id="cardDeckLight2b"></div>
+					<div class="cardDeckLight" id="cardDeckLight2c"></div>
+				</div>
+				<div class="cardDeck" id="cardDeck2">F</div>
+				<div class="cardDeckLightSpace" id="cardDeckLightSpace2b">
+					<div class="cardDeckLight" id="cardDeckLight2a"></div>
+					<div class="cardDeckLight" id="cardDeckLight2b"></div>
+					<div class="cardDeckLight" id="cardDeckLight2c"></div>
+				</div>
+			</div>
+			<div class="cardDeckName" id="cardDeckName3">Fate</div>
+		</div>
+		<div class="cardDeckSpace">
+			<div class="cardDeckLightAndCard">
+				<div class="cardDeckLightSpace" id="cardDeckLightSpace3a">
+					<div class="cardDeckLight" id="cardDeckLight3a"></div>
+					<div class="cardDeckLight" id="cardDeckLight3b"></div>
+					<div class="cardDeckLight" id="cardDeckLight3c"></div>
+				</div>
+				<div class="cardDeck" id="cardDeck3">!?</div>
+				<div class="cardDeckLightSpace" id="cardDeckLightSpace3b">
+					<div class="cardDeckLight" id="cardDeckLight3a"></div>
+					<div class="cardDeckLight" id="cardDeckLight3b"></div>
+					<div class="cardDeckLight" id="cardDeckLight3c"></div>
+				</div>
+			</div>
+			<div class="cardDeckName" id="cardDeckName3">Mystery</div>
+		</div>
+	</div>
+	<div id="middleSpace">
+		<div id="middleTop">
+			<div class="ff" id="f1">F</div>
+			<div class="ff" id="f2">A</div>
+			<div class="ff" id="f3">R</div>
+			<div class="ff" id="f4">B</div>
+			<div class="ff" id="f5">E</div>
+			<div class="ff" id="f6">N</div>
+			<div class="ff" id="f7">F</div>
+			<div class="ff" id="f8">R</div>
+			<div class="ff" id="f9">E</div>
+			<div class="ff" id="f10">U</div>
+			<div class="ff" id="f11">D</div>
+			<div class="ff" id="f12">E</div>
+		</div>
+		<div id="middleMiddle">
+			<block th:each="counter1:${#numbers.sequence(0,9)}"> <!-- Inclusive so 0,1,2,3...9 -->
+				<block th:each="counter2:${#numbers.sequence(0,9)}"> <!-- Inclusive so 0,1,2,3...9 -->
+					<div class="cell" 
+					     th:id="${'cell_' + counter1 + '_' + counter2}"
+					     th:attr="data-color=${gameGrid.getCell(counter1,counter2).color},
+					              data-power=${gameGrid.getCell(counter1,counter2).power},
+					              data-owner=${gameGrid.getCell(counter1,counter2).owner}">
+					</div>
+				</block>
+				
+			</block>			
+		</div>
+		<div id="middleBottom">
+			<div class="statusMsg" id="sm1">Welcome to Farbenfreude</div>
+			<div class="statusMsg" id="sm2"></div>
+			<div class="statusMsg" id="sm3">
+				<button class="myButton btn btn-default" id="btnInstructions">Instructions</button>			
+				<button class="myButton btn btn-default" id="btnStartNewGame">Start New Game</button>
+			</div>
+		</div>
+	</div>
+	<div id="rightSpace">
+		<div class="playerScore">
+			<div id="playerScore1">
+				<div class="scoreBox cellColor1" id="scorep1">0</div>
+				<div id="scoreBoxUserName" class="nameBox">...</div>
+			</div>
+		</div>
+		<div class="playerScore">
+			<div id="playerScore2">
+				<div class="scoreBox cellColor2" id="scorep2">0</div>
+				<div class="nameBox">Hal 9000</div>
+			</div>
+		</div>
+		<div class="playerScore">
+			<div id="playerScore3">
+				<div class="scoreBox cellColor3" id="scorep3">0</div>
+				<div class="nameBox">Skynet</div>
+			</div>
+		</div>
+		<div class="playerScore">
+			<div id="playerScore4">
+				<div class="scoreBox cellColor4" id="scorep4">0</div>
+				<div class="nameBox">WOPR</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div>
+	<button class="myButton btn btn-default" id="btnShowAllBoard">Show All Board</button>
+	<button class="myButton btn btn-default" id="btnHideAllBoard">Hide All Board</button>
+</div>
+
+<div id="myModalInstructions" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title center">Farbenfreude Instructions</h3>
+            </div>
+            <div class="modal-body">
+	            <p>Phase 1 - Pick two gray tiles to reveal them. Then choose any visible black tile available. This phase will last 10 rounds.</p>
+	            <p>Phase 2 - Pick a single card from one of the three decks: Action, Fate, Mystery. Follow instructions on that card.</p>
+	            <P>Action cards - deal with your specific points - generally changing the amount up or down.</P>
+	            <P>Fate cards - involve you and your playing partners - generally trading or manipulating opponents.</P>
+	            <P>Mystery cards - may result in chaos or supernatural events. Most people avoid these cards. Choose at your own risk.</P>
+	            <p>Winner is first to get to 90 or more points.</p>
+	            <p>Good Luck!</p>
+	           	<p>Enter your avatar name: <input id="userName" type="text" maxlength="10" autofocus onClick="this.select();" value="Jughead"></input></p>
+         	</div>
+         	<div class="modal-footer">
+        		<button type="button" class="btn btn-default btn-primary startNewGame" data-dismiss="modal">&nbsp;&nbsp;&nbsp; Ok &nbsp;&nbsp;&nbsp;</button>
+      		</div>
+        </div>
+    </div>
+</div>
+
+<div id="myModalStartNewGame" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title center">Farbenfreude New Game</h3>
+            </div>
+            <div class="modal-body">
+	           	<p>Enter your avatar name: <input id="userName2" type="text" maxlength="10" autofocus onClick="this.select();" value="Jughead"></input></p>
+         	</div>
+         	<div class="modal-footer">
+        		<button type="button" class="btn btn-default btn-primary startNewGame2" data-dismiss="modal">&nbsp;&nbsp;&nbsp; Ok &nbsp;&nbsp;&nbsp;</button>
+      		</div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

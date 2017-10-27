@@ -1,0 +1,256 @@
+@charset "ISO-8859-1";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	margin-left: 2em;
+	margin-right: 2em;
+}
+
+div#middleTop {
+	width: 624px;
+	height: 44px;
+	background-color: black;
+	color: gray;
+	font-size: 2em;
+	font-weight: bold;
+	text-align: center;
+}
+
+div.ff {
+	float: left;
+	text-align: center;
+	margin-left: 20px;
+}
+
+#f1, #f5, #f9 {
+	background-color: #00e;
+	color: black;
+	transform: rotate(10deg);
+	width: 30px;
+}
+#f2, #f6, #f10 {
+	background-color: #0c0;
+	color: black;
+	transform: rotate(-10deg);
+	width: 30px;
+}
+#f3, #f7, #f11 {
+	background-color: #c00;
+	color: black;
+	transform: rotate(10deg);
+	width: 30px;
+}
+#f4, #f8, #f12 {
+	background-color: #f0f;
+	color: black;
+	transform: rotate(-10deg);
+	width: 30px;
+}
+
+div#gameSpace {
+	width: 1024px;
+	height: 768px;
+	background-color: red;
+}
+
+div#leftSpace {
+	width: 200px;
+	height: 768px;
+	background-color: #999;
+	float: left;
+}
+
+div.cardDeckSpace{
+	width: 200px;
+	height: 256px;
+	background-color: #999;
+	border: 1px solid #333;
+	box-sizing: border-box;
+}
+
+div.cardDeckLightAndCard {
+	margin-top: 40px;
+	width: 170px;
+	height: 150px;
+	float: left;
+	margin-left: 17px;
+}
+
+div.cardDeckLightSpace {
+	width: 30px;
+	height: 150px;
+	background-color: #999;
+	float: left;
+}
+
+div.cardDeckLight {
+	margin-top: 22px;
+	margin-left: 5px;
+	width: 20px;
+	height: 20px;
+	background-color: #aaa;
+	border-radius: 10px;
+}
+
+div.cardDeck {
+	width: 100px;
+	height: 150px;
+	background-color: black;
+	color: yellow;
+	font-size: 5em;
+	text-align: center;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding-top: 20px;
+	border-radius: 10px;
+	float: left;
+}
+
+div.cardDeckName {
+	width: 200px;
+	height: 35px;
+	background-color: #999;
+	color: black;
+	font-size: 2em;
+	text-align: center;
+	clear: both;;
+}
+
+div#middleSpace {
+	width: 624px;
+	height: 768px;
+	background-color: #ccc;
+	float: left;
+}
+
+div#rightSpace {
+	width: 200px;
+	height: 768px;
+	background-color: #999;
+	float: left;
+}
+
+div.playerScore {
+	width: 200px;
+	height: 192px;
+	background-color: #999;
+	border: 1px solid #333;
+	box-sizing: border-box;
+}
+
+div.scoreBox {
+	width: 100px;
+	height: 110px;
+	background-color: black;
+	color: white;
+	font-size: 5em;
+	text-align: center;
+	margin-left: 50px;
+	margin-top: 25px;
+	border-radius: 10px;
+}
+
+div.nameBox {
+	width: 180px;
+	height: 35px;
+	background-color: #999;
+	color: black;
+	font-size: 2em;
+	text-align: center;
+	margin-left: 10px;
+	margin-top: 0px;
+}
+
+div#middleMiddle {
+	width: 624px;
+	height: 624px;
+	background-color: #888;
+	border: 2px solid red;
+	box-sizing: border-box;
+}
+
+div#middleBottom {
+	width: 624px;
+	height: 100px;
+	background-color: black;
+}
+
+#sm1, #sm1, #sm3 {
+	width: 624px;
+	height: 33px;
+	background-color: black;
+	color: #aaa;
+	font-size: 1.5em;
+	font-weight: bold;
+	text-align: center;
+}
+
+div.cell {
+	width: 62px;
+	height: 62px;
+	background-color: #777;
+	border: 1px solid #555;
+	box-sizing: border-box;
+	float: left;
+	font-size: 3em;
+	text-align: center;	
+}
+
+//div.cell:hover {
+//	border: 1px solid #aaa;
+//}
+
+div.cellColor1 {
+	color: #00e;
+	background-color: black;
+}
+
+div.cellColor2 {
+	color: #c00;
+	background-color: black;
+}
+
+div.cellColor3 {
+	color: #0c0;
+	background-color: black;
+}
+
+div.cellColor4 {
+	color: #f0f;
+	background-color: black;
+}
+
+div.cellColor5 {
+	color: #555;
+	background-color: black;
+}
+
+div.cellOwner1 {
+	border: 3px solid #44f;
+}
+
+div.cellOwner2 {
+	border: 3px solid #f44;
+}
+
+div.cellOwner3 {
+	border: 3px solid #4f4;
+}
+
+div.cellOwner4 {
+	border: 3px solid #f0f;
+}
+
+.myButton {
+	margin: 1em;
+}
+
+
+
+
+
+
