@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Farbenfreude</title>
+	<meta charset="ISO-8859-1">
+	<title>Farbenfreude</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet" >
 	<link href="css/main.css" type="text/css" rel="stylesheet">
 </head>
@@ -16,7 +17,9 @@
 					<div class="cardDeckLight" id="cardDeckLight1b"></div>
 					<div class="cardDeckLight" id="cardDeckLight1c"></div>
 				</div>
-				<div class="cardDeck" id="cardDeck1">A</div>
+				<div class="cardDeck" id="cardDeck1">
+					<div class="cardDeckLetter">A</div>
+				</div>
 				<div class="cardDeckLightSpace" id="cardDeckLightSpace1b">
 					<div class="cardDeckLight" id="cardDeckLight1a"></div>
 					<div class="cardDeckLight" id="cardDeckLight1b"></div>
@@ -32,7 +35,9 @@
 					<div class="cardDeckLight" id="cardDeckLight2b"></div>
 					<div class="cardDeckLight" id="cardDeckLight2c"></div>
 				</div>
-				<div class="cardDeck" id="cardDeck2">F</div>
+				<div class="cardDeck" id="cardDeck2">
+					<div class="cardDeckLetter">F</div>
+				</div>
 				<div class="cardDeckLightSpace" id="cardDeckLightSpace2b">
 					<div class="cardDeckLight" id="cardDeckLight2a"></div>
 					<div class="cardDeckLight" id="cardDeckLight2b"></div>
@@ -48,7 +53,9 @@
 					<div class="cardDeckLight" id="cardDeckLight3b"></div>
 					<div class="cardDeckLight" id="cardDeckLight3c"></div>
 				</div>
-				<div class="cardDeck" id="cardDeck3">!?</div>
+				<div class="cardDeck" id="cardDeck3">
+					<div class="cardDeckLetter">!?</div>
+				</div>
 				<div class="cardDeckLightSpace" id="cardDeckLightSpace3b">
 					<div class="cardDeckLight" id="cardDeckLight3a"></div>
 					<div class="cardDeckLight" id="cardDeckLight3b"></div>
@@ -60,18 +67,20 @@
 	</div>
 	<div id="middleSpace">
 		<div id="middleTop">
-			<div class="ff" id="f1">F</div>
-			<div class="ff" id="f2">A</div>
-			<div class="ff" id="f3">R</div>
-			<div class="ff" id="f4">B</div>
-			<div class="ff" id="f5">E</div>
-			<div class="ff" id="f6">N</div>
-			<div class="ff" id="f7">F</div>
-			<div class="ff" id="f8">R</div>
-			<div class="ff" id="f9">E</div>
-			<div class="ff" id="f10">U</div>
-			<div class="ff" id="f11">D</div>
-			<div class="ff" id="f12">E</div>
+			<div class="ff1">
+				<div class="ff2" id="f1">F</div>
+				<div class="ff2" id="f2">A</div>
+				<div class="ff2" id="f3">R</div>
+				<div class="ff2" id="f4">B</div>
+				<div class="ff2" id="f5">E</div>
+				<div class="ff2" id="f6">N</div>
+				<div class="ff2" id="f7">F</div>
+				<div class="ff2" id="f8">R</div>
+				<div class="ff2" id="f9">E</div>
+				<div class="ff2" id="f10">U</div>
+				<div class="ff2" id="f11">D</div>
+				<div class="ff2" id="f12">E</div>
+			</div>
 		</div>
 		<div id="middleMiddle">
 			<block th:each="counter1:${#numbers.sequence(0,9)}"> <!-- Inclusive so 0,1,2,3...9 -->
@@ -97,28 +106,20 @@
 	</div>
 	<div id="rightSpace">
 		<div class="playerScore">
-			<div id="playerScore1">
-				<div class="scoreBox cellColor1" id="scorep1">0</div>
-				<div id="scoreBoxUserName" class="nameBox">...</div>
-			</div>
+			<div class="scoreBox cellColor1" id="scorep1">0</div>
+			<div id="scoreBoxUserName" class="nameBox">...</div>
 		</div>
 		<div class="playerScore">
-			<div id="playerScore2">
-				<div class="scoreBox cellColor2" id="scorep2">0</div>
-				<div class="nameBox">Skynet</div>
-			</div>
+			<div class="scoreBox cellColor2" id="scorep2">0</div>
+			<div class="nameBox">Skynet</div>
 		</div>
 		<div class="playerScore">
-			<div id="playerScore3">
-				<div class="scoreBox cellColor3" id="scorep3">0</div>
-				<div class="nameBox">WOPR</div>
-			</div>
+			<div class="scoreBox cellColor3" id="scorep3">0</div>
+			<div class="nameBox">WOPR</div>
 		</div>
 		<div class="playerScore">
-			<div id="playerScore4">
-				<div class="scoreBox cellColor4" id="scorep4">0</div>
-				<div class="nameBox">HAL 9000</div>
-			</div>
+			<div class="scoreBox cellColor4" id="scorep4">0</div>
+			<div class="nameBox">HAL 9000</div>
 		</div>
 	</div>
 </div>

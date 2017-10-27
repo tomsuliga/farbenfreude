@@ -13,6 +13,7 @@ var currentPlayerName;
 
 $(document).ready(function() {
 	console.log("Window loaded and ready");
+	myResize();
 });
 
 //dynamic - works after class being added
@@ -134,6 +135,31 @@ function beginGame() {
 	$('#sm1').text("");
 	$('#sm2').text(currentPlayerName + ": Select 2 gray tiles...");
 	$('#sm3').text("");
+	
+	GoInFullscreen(document.querySelector("#gameSpace"));
+}
+
+function GoInFullscreen(element) {
+	if(element.requestFullscreen)
+		element.requestFullscreen();
+	else if(element.mozRequestFullScreen)
+		element.mozRequestFullScreen();
+	else if(element.webkitRequestFullscreen)
+		element.webkitRequestFullscreen();
+	else if(element.msRequestFullscreen)
+		element.msRequestFullscreen();
+}
+
+window.onresize = function() {
+	myResize();
+}
+
+function myResize() {
+	console.log("window resized");
+	let w = $(document).width();
+	let h = w * .55;
+	$('#gameSpace').css('width', w);
+	$('#gameSpace').css('height', h);
 }
 
 $(document).on('click', "button#btnInstructions", function() {	
