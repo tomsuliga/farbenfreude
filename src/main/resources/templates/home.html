@@ -83,8 +83,8 @@
 			</div>
 		</div>
 		<div id="middleMiddle">
-			<block th:each="counter1:${#numbers.sequence(0,9)}"> <!-- Inclusive so 0,1,2,3...9 -->
-				<block th:each="counter2:${#numbers.sequence(0,9)}"> <!-- Inclusive so 0,1,2,3...9 -->
+			<block th:each="counter1:${#numbers.sequence(0,19)}"> <!-- Inclusive so 0,1,2,3...9 -->
+				<block th:each="counter2:${#numbers.sequence(0,19)}"> <!-- Inclusive so 0,1,2,3...9 -->
 					<div class="cell cellAvailable" 
 					     th:id="${'cell_' + counter1 + '_' + counter2}"
 					     th:attr="data-color=${gameGrid.getCell(counter1,counter2).color},
@@ -106,20 +106,32 @@
 	</div>
 	<div id="rightSpace">
 		<div class="playerScore">
+			<div class="nameBox" id="scoreBoxUserName" >...</div>
 			<div class="scoreBox cellColor1" id="scorep1">0</div>
-			<div id="scoreBoxUserName" class="nameBox">...</div>
+			<div class="scoreBox cellColor1" id="scorep1b">0</div>
+			<div class="scoreBoxName">Mana</div>
+			<div class="scoreBoxName">Power</div>
 		</div>
 		<div class="playerScore">
-			<div class="scoreBox cellColor2" id="scorep2">0</div>
 			<div class="nameBox">Skynet</div>
+			<div class="scoreBox cellColor2" id="scorep2">0</div>
+			<div class="scoreBox cellColor2" id="scorep2b">0</div>
+			<div class="scoreBoxName">Mana</div>
+			<div class="scoreBoxName">Power</div>
 		</div>
 		<div class="playerScore">
-			<div class="scoreBox cellColor3" id="scorep3">0</div>
 			<div class="nameBox">WOPR</div>
+			<div class="scoreBox cellColor3" id="scorep3">0</div>
+			<div class="scoreBox cellColor3" id="scorep3b">0</div>
+			<div class="scoreBoxName">Mana</div>
+			<div class="scoreBoxName">Power</div>
 		</div>
 		<div class="playerScore">
-			<div class="scoreBox cellColor4" id="scorep4">0</div>
 			<div class="nameBox">HAL 9000</div>
+			<div class="scoreBox cellColor4" id="scorep4">0</div>
+			<div class="scoreBox cellColor4" id="scorep4b">0</div>
+			<div class="scoreBoxName">Mana</div>
+			<div class="scoreBoxName">Power</div>
 		</div>
 	</div>
 </div>

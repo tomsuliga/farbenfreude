@@ -14,18 +14,18 @@ p {
 	margin-right: 2em;
 }
 
+div#gameSpace, div#leftSpace, div#middleSpace, div#rightSpace, div.cardDeckSpace {
+	background-color: #999;
+}
+
 div#gameSpace {
-	//width: 1024px;
-	//height: 768px;
-	background-color: red;
-	margin:0; 
-	padding:0; 
 	width: 100%; 
 	height: 100%;
+	margin:0; 
+	padding:0; 
 }
 
 footer {
-	//width: 1024px;
 	width: 100%;
 	color: #333;
 	margin-left: .5em;
@@ -33,45 +33,31 @@ footer {
 }
 
 div#leftSpace {
-	//width: 200px;
-	//height: 768px;
-	width: 20%;
+	width: 15%;
 	height: 100%;
-	background-color: #999;
 	float: left;
 }
 
 div#middleSpace {
-	//width: 624px;
-	//height: 768px;
 	width: 60%;
 	height: 100%;
-	background-color: #999;
 	float: left;
 }
 
 div#rightSpace {
-	//width: 200px;
-	//height: 768px;
-	width: 20%;
+	width: 25%;
 	height: 100%;
-	background-color: #999;
 	float: left;
 }
 
-div.cardDeckSpace{
-	//width: 200px;
-	//height: 256px;
+div.cardDeckSpace {
 	width: 100%;
 	height: 33.333%;
-	background-color: #999;
 	border: 1px solid #333;
 	box-sizing: border-box;
 }
 
 div#middleTop {
-	//width: 624px;
-	//height: 44px;
 	width: 100%;
 	height: 5%;
 	background-color: black;
@@ -83,8 +69,6 @@ div#middleTop {
 }
 
 div#middleMiddle {
-	//width: 624px;
-	//height: 624px;
 	width: 100%;
 	height: 85%;
 	background-color: #999;
@@ -93,33 +77,26 @@ div#middleMiddle {
 }
 
 div.cell {
-	//width: 62px;
-	//height: 62px;
-	width: 10%;
-	height: 10%;
-	background-color: #999;
-	border: 1px solid #555;
+	width: 5%;
+	height: 5%;
+	background-color: #555;
+	border: 1px solid #111;
 	box-sizing: border-box;
 	float: left;
-	//font-size: 3em;
-	font-size: calc(2vw + 2vh);
+	font-size: calc(1.1vw + 1.1vh);
 	font-weight: bold;
 	text-align: center;	
-	//border-radius: 5%;
+	cursor: pointer;
 }
 
 
 div#middleBottom {
-	//width: 624px;
-	//height: 100px;
 	width: 100%;
 	height: 10%;
 	background-color: black;
 }
 
 #sm1, #sm2, #sm3 {
-	//width: 624px;
-	//height: 33px;
 	width: 100%;
 	height: 3%;
 	background-color: black;
@@ -140,58 +117,54 @@ div.ff2 {
 	float: left;
 	margin-left: 2%;
 }
-
-#f1, #f5, #f9 {
-	background-color: #00e;
+#f1, #f2, #f3, #f4, #f5, #f6, #f7, #f8, #f9, #f10, #f11, #f12 {
 	color: black;
-	transform: rotate(10deg);
 	font-size: calc(1vw + 1vh);
 	width: 5%;
+}
+
+#f1, #f3, #f5, #f7, #f9, #f11 {
+	transform: rotate(10deg);
+} 
+
+#f2, #f4, #f6, #f8, #f10, #f12 {
+	transform: rotate(-10deg);
+}
+ 
+#f1, #f5, #f9 {
+	background-color: #00e;
 }
 #f2, #f6, #f10 {
 	background-color: #0c0;
-	color: black;
-	transform: rotate(-10deg);
-	font-size: calc(1vw + 1vh);
-	width: 5%;
 }
 #f3, #f7, #f11 {
 	background-color: #c00;
-	color: black;
-	transform: rotate(10deg);
-	font-size: calc(1vw + 1vh);
-	width: 5%;
 }
 #f4, #f8, #f12 {
 	background-color: #f0f;
-	color: black;
-	transform: rotate(-10deg);
-	font-size: calc(1vw + 1vh);
-	width: 5%;
 }
 
 div.cardDeckLightAndCard {
-	width: 80%;
-	height: 70%;
+	width: 100%;
+	height: 65%;
 	float: left;
-	margin-top: 10%;
-	margin-left: 20%;
+	margin-top: 15%;
+	margin-left: 5%;
 }
 
 div.cardDeckLightSpace {
-	width: 10%;
+	width: 8%;
 	height: 50%;
-	margin-top: 15%;
+	margin-top: 20%;
+	margin-left: 5%;
+	margin-right: 5%;
 	background-color: #999;
 	float: left;
 }
 
-div.cardDeckLight { // circle
-	//margin-top: 22px;
-	//margin-left: 5px;
-	margin-top: 50%;
-	margin-left: 10%;
-	width: 80%;
+div.cardDeckLight {
+	margin-top: 40%;
+	width: 100%;
 	height: 20%;
 	background-color: #aaa;
 	border-radius: 5em;
@@ -230,8 +203,6 @@ div.cardDeckName {
 }
 
 div.playerScore {
-	//width: 200px;
-	//height: 192px;
 	width: 100%;
 	height: 25%;
 	background-color: #999;
@@ -240,26 +211,38 @@ div.playerScore {
 }
 
 div.scoreBox {
-	width: 50%;
+	width: 33%;
 	height: 50%;
 	background-color: black;
 	color: white;
 	font-size: calc(3vw + 3vh);
 	text-align: center;
-	margin-left: 25%;
-	margin-top: 15%;
+	margin-left: 12%;
+	margin-top: 6%;
+	float: left;
 	border-radius: 10px;
 }
 
 div.nameBox {
 	width: 100%;
-	height: 10%;
+	height: 7%;
 	background-color: #999;
 	color: black;
 	font-size: 2em;
 	text-align: center;
-	//margin-left: 20%;
-	//margin-top: 0px;
+	clear: both;
+	margin-top: 5%;
+}
+
+div.scoreBoxName {
+	width: 33%;
+	height: 15%;
+	background-color: #999;
+	color: black;
+	font-size: 2em;
+	text-align: center;
+	float: left;
+	margin-left: 12%;
 }
 
 div.cellAvailable {
@@ -291,7 +274,7 @@ div.cellColor4 {
 }
 
 div.cellColor5 {
-	color: #555;
+	color: #333;
 	background-color: black;
 }
 
@@ -314,9 +297,6 @@ div.cellOwner4 {
 .myButton {
 	margin: 1em;
 }
-
-
-
 
 
 

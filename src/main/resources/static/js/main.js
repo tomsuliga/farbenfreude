@@ -64,13 +64,27 @@ function revealCell(e) {
 	
 	e.removeClass("cellAvailable");
 	
-	e.addClass("cellColor" + cellColor);
+	//e.addClass("cellColor" + cellColor);
 	
 	if (cellOwner != cellColor) {
 		e.addClass("cellOwner" + cellOwner);
 	}
 	
-	e.text(cellPower);
+	if (cellPower == '1' || cellPower == '2' || cellPower == '3' || cellPower == '4') {
+		e.text("");
+	} else {
+		e.text(cellPower);
+	}
+	
+	if (cellPower == '5') {
+		e.addClass("cellColor2");
+	} else if (cellPower == '6') {
+		e.addClass("cellColor3");
+	} if (cellPower == '7') {
+		e.addClass("cellColor4");
+	} else {
+		e.addClass("cellColor1");
+	}
 	
 	if (phase == 1) {
 		numTilesRevealed++;
@@ -110,8 +124,8 @@ function hideCell(e) {
 
 $(document).on('click', "button#btnShowAllBoard", function() {	
 	console.log("Show all board");
-	for (let i=0;i<10;i++) {
-		for (let j=0;j<10;j++) {
+	for (let i=0;i<20;i++) {
+		for (let j=0;j<20;j++) {
 			let e = $('#cell_' + i + "_"+ j);
 			revealCell(e);
 		}
@@ -120,8 +134,8 @@ $(document).on('click', "button#btnShowAllBoard", function() {
 
 $(document).on('click', "button#btnHideAllBoard", function() {	
 	console.log("Hide all board");
-	for (let i=0;i<10;i++) {
-		for (let j=0;j<10;j++) {
+	for (let i=0;i<20;i++) {
+		for (let j=0;j<20;j++) {
 			let e = $('#cell_' + i + "_"+ j);
 			hideCell(e);
 		}
