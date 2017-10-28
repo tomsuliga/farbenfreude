@@ -46,7 +46,7 @@ div#middleSpace {
 	//height: 768px;
 	width: 60%;
 	height: 100%;
-	background-color: #ccc;
+	background-color: #999;
 	float: left;
 }
 
@@ -63,7 +63,7 @@ div.cardDeckSpace{
 	//width: 200px;
 	//height: 256px;
 	width: 100%;
-	height: 33%;
+	height: 33.333%;
 	background-color: #999;
 	border: 1px solid #333;
 	box-sizing: border-box;
@@ -75,7 +75,7 @@ div#middleTop {
 	width: 100%;
 	height: 5%;
 	background-color: black;
-	color: gray;
+	color: white;
 	font-size: 1.75em;
 	padding-top: 5px;
 	font-weight: bold;
@@ -87,7 +87,7 @@ div#middleMiddle {
 	//height: 624px;
 	width: 100%;
 	height: 85%;
-	background-color: #888;
+	background-color: #999;
 	border: 2px solid blue;
 	box-sizing: border-box;
 }
@@ -97,12 +97,15 @@ div.cell {
 	//height: 62px;
 	width: 10%;
 	height: 10%;
-	background-color: #777;
+	background-color: #999;
 	border: 1px solid #555;
 	box-sizing: border-box;
 	float: left;
-	font-size: 3em;
+	//font-size: 3em;
+	font-size: calc(2vw + 2vh);
+	font-weight: bold;
 	text-align: center;	
+	//border-radius: 5%;
 }
 
 
@@ -203,11 +206,15 @@ div.cardDeck {
 	cursor: pointer;
 }
 
+div.cardDeck:hover {
+	//border: 2px solid yellow;
+}
+
 div.cardDeckLetter {
 	width: 100%;
 	height: 50%;
 	margin-top: 40%;
-	color: yellow;
+	color: #ff0;
 	font-size: calc(3vw + 3vh);
 	text-align: center;
 }
